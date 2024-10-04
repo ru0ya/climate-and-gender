@@ -1,6 +1,8 @@
 from django.urls import path
-from .views import HomeView, user_register_view
 from django.contrib.auth import views as auth_views
+
+from .views import HomeView, user_register_view
+
 
 urlpatterns = [
     path('', HomeView, name='home'),

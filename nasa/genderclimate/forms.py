@@ -1,21 +1,74 @@
 from django import forms
 from django.contrib.auth.models import User
-from  .models import UserProfile
 from django.contrib.auth.forms import UserCreationForm
 
+from  .models import UserProfile
 
 
-class UserProfileForm(UserCreationForm):
-    age = forms.IntegerField(required=False, widget=forms.NumberInput(attrs={'class': 'form-control', 'placeholder': 'Enter your age'}))
-    gender = forms.ChoiceField(choices=UserProfile.GENDER_CHOICES, widget=forms.Select(attrs={'class': 'form-control'}))
-    location = forms.CharField(required=False, widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter your location'}))
-    health_condition = forms.ChoiceField(choices=UserProfile.HEALTH_CONDITION_CHOICES, widget=forms.Select(attrs={'class': 'form-control'}))
-    phone = forms.CharField(required=False, widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter your phone number'}))
-    next_of_kin = forms.CharField(required=False, widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Next of kin phone number'}))
+class UserForm(UserCreationForm):
+    age = forms.IntegerField(
+            required=False,
+            widget=forms.NumberInput(
+                attrs={
+                    'class': 'form-control',
+                    'placeholder': 'Enter your age'
+                    }
+                )
+            )
+    gender = forms.ChoiceField(
+            choices=UserProfile.GENDER_CHOICES,
+            widget=forms.Select(attrs={'class': 'form-control'})
+            )
+    location = forms.CharField(
+            required=False,
+            widget=forms.TextInput(
+                attrs={
+                    'class': 'form-control',
+                    'placeholder': 'Enter your location'
+                
+                    }
+                )
+            )
+    health_condition = forms.ChoiceField(
+            choices=UserProfile.HEALTH_CONDITION_CHOICES,
+            widget=forms.Select(attrs={'class': 'form-control'})
+            )
+    phone = forms.CharField(
+            requiired=False,
+            widget=forms.TextInput(
+                attrs={
+                    'class': 'form-control',
+                    'placeholder': 'Enter your phone number'
+                    }
+                )
+            )
+    next_of_kin = forms.CharField(
+            required=False,
+            widget=forms.TextInput(
+                attrs={
+                    'class': 'form-control',
+                    'placeholder': 'Next of kin phone number'
+                    }
+                )
+            )
 
     class Meta(UserCreationForm.Meta):
         model = User
-        fields = ['username', 'first_name', 'last_name', 'email', 'password1', 'password2', 'age', 'gender', 'location', 'health_condition', 'email', 'phone', 'next_of_kin']
+        fields = [
+                'username',
+                'first_name',
+                'last_name',
+                'email',
+                'password1',
+                'password2',
+                'age',
+                'gender',
+                'location',
+                'health_condition',
+                'email',
+                'phone',
+                'next_of_kin'
+                ]
 
     def save(self, commit=True):
         user = super().save(commit=False)  # Save the User fields first
