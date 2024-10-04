@@ -2,7 +2,7 @@ from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 
-from  .models import UserProfile
+from  .models import User
 
 
 class UserForm(UserCreationForm):
@@ -16,7 +16,7 @@ class UserForm(UserCreationForm):
                 )
             )
     gender = forms.ChoiceField(
-            choices=UserProfile.GENDER_CHOICES,
+            choices=User.GENDER_CHOICES,
             widget=forms.Select(attrs={'class': 'form-control'})
             )
     location = forms.CharField(
@@ -30,11 +30,11 @@ class UserForm(UserCreationForm):
                 )
             )
     health_condition = forms.ChoiceField(
-            choices=UserProfile.HEALTH_CONDITION_CHOICES,
+            choices=User.HEALTH_CONDITION_CHOICES,
             widget=forms.Select(attrs={'class': 'form-control'})
             )
     phone = forms.CharField(
-            requiired=False,
+            required=False,
             widget=forms.TextInput(
                 attrs={
                     'class': 'form-control',
@@ -75,7 +75,7 @@ class UserForm(UserCreationForm):
         
         if commit:
             user.save()
-            UserProfile.objects.create(
+            User.objects.create(
                 user=user,
                 age=self.cleaned_data['age'],
                 gender=self.cleaned_data['gender'],

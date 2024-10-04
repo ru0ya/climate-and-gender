@@ -20,8 +20,3 @@ def user_register_view(request):
         form = UserForm()
 
     return render(request, 'register.html', {'form': form})
-
-
-def logout_view(request):
-    logout(request)
-    return render(request, 'home.html', {'form': form})
