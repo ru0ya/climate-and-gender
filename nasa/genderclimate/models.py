@@ -4,7 +4,6 @@ from django.contrib.auth.models import User
 # User profile
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    name = models.CharField(max_length=255)
     age = models.IntegerField()
     GENDER_CHOICES = [
         ('M', 'Male'),
@@ -21,6 +20,7 @@ class UserProfile(models.Model):
     health_condition = models.CharField(max_length=50, choices=HEALTH_CONDITION_CHOICES)
     email = models.EmailField()
     phone = models.CharField(max_length=20)
+    next_of_kin = models.CharField(max_length=20)
 
     def __str__(self):
-        return self.name
+        return self.user.username
