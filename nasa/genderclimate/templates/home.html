@@ -1,52 +1,251 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<style>
+    /* Hero Section Styling */
+    .hero {
+        background: linear-gradient(135deg, #4a90e2, #6dd5fa);
+        color: white;
+        min-height: 25vh; /* Changed from 70vh to 25vh for a smaller height */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .hero::before {
+        content: '';
+        position: absolute;
+        top: -50px; /* Adjusted for a smaller floating effect */
+        left: -50px; /* Adjusted for a smaller floating effect */
+        width: 300px; /* Adjusted size */
+        height: 300px; /* Adjusted size */
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        animation: floating 10s ease-in-out infinite;
+        z-index: 0;
+    }
+
+    @keyframes floating {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(10px); } /* Reduced floating distance */
+    }
+
+    .hero-content {
+        padding: 10px; /* Reduced padding for a more compact layout */
+        max-width: 700px; /* Keep max-width for content */
+        z-index: 1;
+        position: relative;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem; /* Reduced font size */
+        font-weight: 700;
+        margin-bottom: 15px; /* Reduced margin */
+        animation: fadeIn 2s ease-in-out forwards;
+    }
+
+    .hero p {
+        font-size: 1rem; /* Reduced font size */
+        margin-bottom: 20px; /* Reduced margin */
+        animation: fadeIn 2s 0.5s ease-in-out forwards;
+    }
+
+    .hero .btn-primary {
+        padding: 10px 25px; /* Adjusted padding */
+        font-size: 1rem; /* Reduced font size */
+        border-radius: 20px; /* Adjusted border radius */
+        background: #ffffff;
+        color: #4a90e2;
+        font-weight: bold;
+        animation: fadeIn 2s 1s ease-in-out forwards;
+    }
+
+    .hero .btn-primary:hover {
+        background: #6dd5fa;
+        color: #ffffff;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Optional Background Elements */
+    .floating-circles {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+        top: 0;
+        left: 0;
+        pointer-events: none;
+    }
+
+    .circle {
+        position: absolute;
+        background-color: rgba(255, 255, 255, 0.15);
+        border-radius: 50%;
+        animation: move 15s ease-in-out infinite;
+    }
+
+    .circle:nth-child(1) {
+        width: 60px; /* Adjusted size */
+        height: 60px; /* Adjusted size */
+        bottom: 20px; /* Adjusted position */
+        left: 20%;
+        animation-duration: 20s;
+    }
+
+    .circle:nth-child(2) {
+        width: 80px; /* Adjusted size */
+        height: 80px; /* Adjusted size */
+        top: 10%; /* Adjusted position */
+        right: 20%;
+        animation-duration: 25s;
+        animation-delay: 5s;
+    }
+
+    .circle:nth-child(3) {
+        width: 40px; /* Adjusted size */
+        height: 40px; /* Adjusted size */
+        bottom: 10%; /* Adjusted position */
+        left: 40%;
+        animation-duration: 18s;
+        animation-delay: 3s;
+    }
+
+    @keyframes move {
+        0%, 100% { transform: translateY(0) translateX(0); }
+        50% { transform: translateY(15px) translateX(10px); } /* Reduced move distance */
+    }
+</style>
+
+
+<!-- Hero Section -->
+<div class="hero">
+    <div class="floating-circles">
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+    </div>
+    <div class="hero-content">
+        <h1>Welcome to Our Health Services</h1>
+        <p>Connecting you with top healthcare providers for a better tomorrow.</p>
+        <a href="#" class="btn btn-primary">Get Started</a>
+    </div>
+</div>
+
+<!-- Main Content (Dashboard Overview) -->
 <div class="container mt-5">
-    <!-- Dashboard Overview Section -->
+    <!-- New Section with Image Cards -->
     <div class="row text-center mb-5">
         <div class="col-md-4">
-            <div class="card border-primary">
+            <div class="card shadow">
+                <img src="https://media.gettyimages.com/id/1225247362/photo/a-young-mother-is-seen-holding-her-8-months-baby-bump-in-kibera-slums-nairobi-some-research.jpg?s=612x612&w=0&k=20&c=PEZ7p8pbbY6MGyvoD8IduLMDM-gTBTIPfULkSxT3rEI=" class="card-img-top" alt="Service Image 1">
                 <div class="card-body">
-                    <h5 class="card-title">Registered Users</h5>
-                    <p class="display-4">{{ users_count }}</p>
+                    <h5 class="card-title">Healthcare</h5>
+                    <p class="card-text">Providing the best healthcare for expectant mothers.</p>.</p>
+                    <a href="#" class="btn btn-warning">Learn More</a>
                 </div>
             </div>
         </div>
         <div class="col-md-4">
-            <div class="card border-success">
+            <div class="card shadow">
+                <img src="https://imgs.search.brave.com/A-fzekZBifz4LRJV-h_FPiv8y82ugqKisvBCIDHWbFw/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly91cGxv/YWQud2lraW1lZGlh/Lm9yZy93aWtpcGVk/aWEvY29tbW9ucy9h/L2FlL0FfeW91bmdf/Ym95X3NpdHNfb3Zl/cl9hbl9vcGVuX3Nl/d2VyX2luX3RoZV9L/aWJlcmFfc2x1bSxf/TmFpcm9iaS5qcGc" class="card-img-top" alt="Service Image 2">
                 <div class="card-body">
-                    <h5 class="card-title">Registered Doctors</h5>
-                    <p class="display-4">{{ doctors_count }}</p>
+                    <h5 class="card-title">Asthmatic Care</h5>
+                    <p class="card-text">Providing the best healthcare services for asthmatic people in the slums.</p>
+                    <a href="#" class="btn btn-warning">Learn More</a>
                 </div>
             </div>
         </div>
         <div class="col-md-4">
-            <div class="card border-info">
+            <div class="card shadow">
+                <img src="https://images.pexels.com/photos/9538593/pexels-photo-9538593.jpeg?auto=compress&cs=tinysrgb&w=600" class="card-img-top" alt="Service Image 3">
                 <div class="card-body">
-                    <h5 class="card-title">Facilities</h5>
-                    <p class="display-4">{{ facilities_count }}</p>
+                    <h5 class="card-title">Specialized Clinics</h5>
+                    <p class="card-text">Providing specialized clinics for specific healthcare needs.</p>
+                    <a href="#" class="btn btn-war">Learn More</a>
                 </div>
             </div>
         </div>
     </div>
 
+    <!-- Dashboard Overview Section -->
+    <div class="row text-center mb-5">
+        <!-- Registered Users Card -->
+        <div class="col-md-4">
+            <div class="card border-primary shadow">
+                <div class="card-body">
+                    <div class="icon mb-3">
+                        <i class="fas fa-users fa-2x text-primary"></i>
+                    </div>
+                    <h5 class="card-title">Registered Users</h5>
+                    <p class="display-4 font-weight-bold text-primary">{{ users_count }}</p>
+                </div>
+            </div>
+        </div>
+        <!-- Registered Doctors Card -->
+        <div class="col-md-4">
+            <div class="card border-success shadow">
+                <div class="card-body">
+                    <div class="icon mb-3">
+                        <i class="fas fa-user-md fa-2x text-success"></i>
+                    </div>
+                    <h5 class="card-title">Registered Doctors</h5>
+                    <p class="display-4 font-weight-bold text-success">{{ doctors_count }}</p>
+                </div>
+            </div>
+        </div>
+        <!-- Facilities Card -->
+        <div class="col-md-4">
+            <div class="card border-info shadow">
+                <div class="card-body">
+                    <div class="icon mb-3">
+                        <i class="fas fa-hospital fa-2x text-info"></i>
+                    </div>
+                    <h5 class="card-title">Facilities</h5>
+                    <p class="display-4 font-weight-bold text-info">{{ facilities_count }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
     <!-- Emergency Services Section -->
     <div class="row">
         <div class="col-12">
-            <div class="card mb-4">
-                <div class="card-header bg-danger text-white">
-                    <h5>Emergency Services</h5>
+            <div class="card mb-4 shadow">
+                <div class="card-header bg-danger text-white d-flex justify-content-between align-items-center">
+                    <h5 class="m-0">Emergency Services</h5>
+                    <i class="fas fa-ambulance fa-lg"></i>
                 </div>
                 <div class="card-body">
                     <ul class="list-group">
-                        <li class="list-group-item">
-                            <i class="fas fa-procedures"></i> <a href="#">Maternal Care</a>
+                        <!-- Maternal Care -->
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <i class="fas fa-procedures text-danger"></i> 
+                            <a href="#" class="ml-2">Maternal Care</a>
+                            <span class="phone-number text-primary" onclick="copyToClipboard('1234567890', 'maternal-copied')">
+                                - Call: 123-456-7890
+                            </span>
+                            <span class="copied-message text-success" id="maternal-copied" style="display: none;">(Copied!)</span>
                         </li>
-                        <li class="list-group-item">
-                            <i class="fas fa-heartbeat"></i> <a href="#">Asthmatic Care</a>
+                        <!-- Asthmatic Care -->
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <i class="fas fa-heartbeat text-danger"></i> 
+                            <a href="#" class="ml-2">Asthmatic Care</a>
+                            <span class="phone-number text-primary" onclick="copyToClipboard('0987654321', 'asthmatic-copied')">
+                                - Call: 098-765-4321
+                            </span>
+                            <span class="copied-message text-success" id="asthmatic-copied" style="display: none;">(Copied!)</span>
                         </li>
-                        <li class="list-group-item">
-                            <i class="fas fa-wind"></i> <a href="#">Air Quality</a>
+                        <!-- Air Quality -->
+                        <li class="list-group-item d-flex align-items-center">
+                            <i class="fas fa-wind text-info"></i> 
+                            <a href="#" class="ml-2">Air Quality</a>
                         </li>
                     </ul>
                 </div>
@@ -57,24 +256,33 @@
     <!-- Other Services Section -->
     <div class="row text-center mb-4">
         <div class="col-md-4">
-            <div class="card">
+            <div class="card shadow p-4">
                 <div class="card-body">
+                    <div class="icon mb-3">
+                        <i class="fas fa-envelope-open-text fa-3x text-primary"></i>
+                    </div>
                     <h5 class="card-title">SMS & Data</h5>
                     <p class="card-text">Send alerts and access healthcare data seamlessly.</p>
                 </div>
             </div>
         </div>
         <div class="col-md-4">
-            <div class="card">
+            <div class="card shadow p-4">
                 <div class="card-body">
+                    <div class="icon mb-3">
+                        <i class="fas fa-mobile-alt fa-3x text-success"></i>
+                    </div>
                     <h5 class="card-title">USSD</h5>
                     <p class="card-text">Quick access to services via USSD codes.</p>
                 </div>
             </div>
         </div>
         <div class="col-md-4">
-            <div class="card">
+            <div class="card shadow p-4">
                 <div class="card-body">
+                    <div class="icon mb-3">
+                        <i class="fas fa-phone fa-3x text-danger"></i>
+                    </div>
                     <h5 class="card-title">Calls</h5>
                     <p class="card-text">Emergency call services for instant support.</p>
                 </div>
@@ -82,5 +290,43 @@
         </div>
     </div>
 </div>
-{% endblock %}
 
+<script>
+    function copyToClipboard(number, elementId) {
+        navigator.clipboard.writeText(number).then(() => {
+            const message = document.getElementById(elementId);
+            message.style.display = 'inline';
+            setTimeout(() => { message.style.display = 'none'; }, 2000);
+        });
+    }
+</script>
+
+<style>
+    .card {
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    }
+    .card-body h5 {
+        font-weight: bold;
+    }
+    .display-4 {
+        font-size: 2.5rem;
+    }
+    .list-group-item {
+        transition: background-color 0.2s;
+    }
+    .list-group-item:hover {
+        background-color: #f8f9fa;
+    }
+    .icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.5rem;
+    }
+</style>
+
+{% endblock %}

@@ -14,6 +14,53 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 </head>
 <body>
+    <style>
+        /* Apply the background image to the body */
+        body {
+            background-image: url('https://images.pexels.com/photos/3080527/pexels-photo-3080527.jpeg?auto=compress&cs=tinysrgb&w=600.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        
+        /* Optional overlay effect */
+        .overlay {
+            background-color: rgba(0, 0, 0, 0.5);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+    
+        /* Set the content wrapper for z-index */
+        .content-wrapper {
+            position: relative;
+            z-index: 2;
+            color: white;
+            padding-top: 50px;
+        }
+        
+        .link {
+            display: inline-block;
+            margin-top: 20px;
+            font-size: 1.5rem;
+            color: #fff;
+            background-color: #007bff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+    
+        .link:hover {
+            background-color: #0056b3;
+        }
+    </style>
+    
+
+
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">Navbar</a>
@@ -63,8 +110,11 @@
         </div>
     </nav>
     
-
-
+    <!-- <div class="content-wrapper container mt-5">
+        <h1 class="text-center">Welcome to Our Health Services</h1>
+        <div class="text-center">
+        </div>
+    </div> -->
     {% block content %}
 
     {% endblock %}
