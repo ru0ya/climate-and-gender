@@ -1,5 +1,40 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-    Gender and climate
+   
+<div class="container my-4">
+    <div class="row">
+      <!-- Facilities Count Card -->
+      <div class="col-md-4">
+        <div class="card text-center">
+          <div class="card-body">
+            <h5 class="card-title">Health Facilities</h5>
+            <p class="card-text">Number of facilities: <span id="facilityCount">150</span></p>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Registered Users Card -->
+      <div class="col-md-4">
+        <div class="card text-center">
+          <div class="card-body">
+            <h5 class="card-title">Registered Users</h5>
+            <p class="card-text">Number of users: <span id="userCount">500</span></p>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Air Quality Analysis Card -->
+      <div class="col-md-4">
+        <div class="card text-center">
+          <div class="card-body">
+            <h5 class="card-title">Air Quality Analysis</h5>
+            <a href="#" class="btn btn-warning">View Air Quality Analysis</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
 {% endblock %}
