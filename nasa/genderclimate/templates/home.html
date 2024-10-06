@@ -132,11 +132,34 @@
         <div class="circle"></div>
     </div>
     <div class="hero-content">
-        <h1>Welcome to Our Health Services</h1>
-        <p>Connecting you with top healthcare providers for a better tomorrow.</p>
-        <a href="#" class="btn btn-primary">Get Started</a>
+        <h1>Welcome to Eco Equality</h1>
+        <p>Discover a world of exceptional healthcare, connecting expectant mothers and asthmatic individuals with leading providers. Together, let's shape a healthier tomorrow!</p>
+        <a href="tel:+1234567890" class="btn btn-dark">Contact Us</a>
     </div>
 </div>
+
+<!-- Video Button -->
+<button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#videoModal">
+    Watch Our Story
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="videoModal" tabindex="-1" aria-labelledby="videoModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="videoModalLabel">Our Story</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="ratio ratio-16x9">
+                    <iframe src="https://youtu.be/F_ssj7-8rYg?si=UtO05Zhrk5ynChnu" title="YouTube video" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 <!-- Main Content (Dashboard Overview) -->
 <div class="container mt-5">
@@ -146,9 +169,10 @@
             <div class="card shadow">
                 <img src="https://media.gettyimages.com/id/1225247362/photo/a-young-mother-is-seen-holding-her-8-months-baby-bump-in-kibera-slums-nairobi-some-research.jpg?s=612x612&w=0&k=20&c=PEZ7p8pbbY6MGyvoD8IduLMDM-gTBTIPfULkSxT3rEI=" class="card-img-top" alt="Service Image 1">
                 <div class="card-body">
+                    <i class="bi bi-heart-pulse" style="font-size: 3rem; color: #4a90e2;"></i>
                     <h5 class="card-title">Healthcare</h5>
                     <p class="card-text">Providing the best healthcare for expectant mothers.</p>.</p>
-                    <a href="#" class="btn btn-warning">Learn More</a>
+                    <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3404537/" class="btn btn-warning">Learn More</a>
                 </div>
             </div>
         </div>
@@ -156,9 +180,10 @@
             <div class="card shadow">
                 <img src="https://imgs.search.brave.com/A-fzekZBifz4LRJV-h_FPiv8y82ugqKisvBCIDHWbFw/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly91cGxv/YWQud2lraW1lZGlh/Lm9yZy93aWtpcGVk/aWEvY29tbW9ucy9h/L2FlL0FfeW91bmdf/Ym95X3NpdHNfb3Zl/cl9hbl9vcGVuX3Nl/d2VyX2luX3RoZV9L/aWJlcmFfc2x1bSxf/TmFpcm9iaS5qcGc" class="card-img-top" alt="Service Image 2">
                 <div class="card-body">
+                    <i class="bi bi-lungs" style="font-size: 3rem; color: #4a90e2;"></i>
                     <h5 class="card-title">Asthmatic Care</h5>
                     <p class="card-text">Providing the best healthcare services for asthmatic people in the slums.</p>
-                    <a href="#" class="btn btn-warning">Learn More</a>
+                    <a href="https://www.nhlbi.nih.gov/health/asthma" class="btn btn-warning">Learn More</a>
                 </div>
             </div>
         </div>
@@ -166,9 +191,10 @@
             <div class="card shadow">
                 <img src="https://images.pexels.com/photos/9538593/pexels-photo-9538593.jpeg?auto=compress&cs=tinysrgb&w=600" class="card-img-top" alt="Service Image 3">
                 <div class="card-body">
+                    <i class="bi bi-hospital" style="font-size: 3rem; color: #4a90e2;"></i>
                     <h5 class="card-title">Specialized Clinics</h5>
                     <p class="card-text">Providing specialized clinics for specific healthcare needs.</p>
-                    <a href="#" class="btn btn-war">Learn More</a>
+                    <a href="https://thenairobihosp.org/" class="btn btn-warning">Learn More</a>
                 </div>
             </div>
         </div>
@@ -226,25 +252,25 @@
                     <ul class="list-group">
                         <!-- Maternal Care -->
                         <li class="list-group-item d-flex justify-content-between align-items-center">
-                            <i class="fas fa-procedures text-danger"></i> 
+                            <i class="fas fa-procedures text-dark"></i> 
                             <a href="#" class="ml-2">Maternal Care</a>
-                            <span class="phone-number text-primary" onclick="copyToClipboard('1234567890', 'maternal-copied')">
-                                - Call: 123-456-7890
+                            <span class="phone-number text-primary" style="cursor: pointer;" onclick="copyToClipboard('1234567890', 'maternal-copied')">
+                                 Call: 123-456-7890
                             </span>
                             <span class="copied-message text-success" id="maternal-copied" style="display: none;">(Copied!)</span>
                         </li>
                         <!-- Asthmatic Care -->
                         <li class="list-group-item d-flex justify-content-between align-items-center">
-                            <i class="fas fa-heartbeat text-danger"></i> 
+                            <i class="fas fa-heartbeat text-dark"></i> 
                             <a href="#" class="ml-2">Asthmatic Care</a>
-                            <span class="phone-number text-primary" onclick="copyToClipboard('0987654321', 'asthmatic-copied')">
-                                - Call: 098-765-4321
+                            <span class="phone-number text-primary" style="cursor: pointer;" onclick="copyToClipboard('0987654321', 'asthmatic-copied')">
+                                 Call: 098-765-4321
                             </span>
                             <span class="copied-message text-success" id="asthmatic-copied" style="display: none;">(Copied!)</span>
                         </li>
                         <!-- Air Quality -->
                         <li class="list-group-item d-flex align-items-center">
-                            <i class="fas fa-wind text-info"></i> 
+                            <i class="fas fa-wind text-dark"></i> 
                             <a href="#" class="ml-2">Air Quality</a>
                         </li>
                     </ul>
@@ -289,7 +315,14 @@
             </div>
         </div>
     </div>
-</div>
+
+    <div class="container mt-5">
+        <h3 class="text-center">Find Us</h3>
+        <div class="map-container" style="width: 100%; height: 400px;">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.3359042235014!2d144.9630583159228!3d-37.81230397975151!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad65d43f1f6b107%3A0xb5f07e8b9e3a96a6!2sClinic!5e0!3m2!1sen!2sus!4v1616095089986!5m2!1sen!2sus" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </div>
+    
 
 <script>
     function copyToClipboard(number, elementId) {
@@ -328,5 +361,6 @@
         font-size: 1.5rem;
     }
 </style>
+
 
 {% endblock %}

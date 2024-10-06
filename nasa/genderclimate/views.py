@@ -9,8 +9,8 @@ from .forms import UserForm
 
 def home_view(request):
 # Example data for counts
-    users_count = 500
-    doctors_count = 150
+    users_count = 100
+    doctors_count = 20
     facilities_count = 80
     
     context = {
