@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 
 from .forms import UserForm
+from healthfacilities.views import search_health_facilities
 
 
 def HomeView(request):
@@ -20,3 +21,10 @@ def user_register_view(request):
         form = UserForm()
 
     return render(request, 'register.html', {'form': form})
+
+
+def search_area(request):
+    query = request.GET.get('query', '')
+    area = request.GET.get('area', '')
+
+    return redirect(f'/healthfacilities/search/?query={query}&area={area}')
