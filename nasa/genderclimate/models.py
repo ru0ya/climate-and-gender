@@ -3,11 +3,8 @@ from django.contrib.auth.models import User
 
 
 
-class User(models.Model):
+class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    username = models.CharField(max_length=20)
-    first_name = models.CharField(max_length=80)
-    last_name = models.CharField(max_length=80)
     age = models.IntegerField()
     GENDER_CHOICES = [
         ('M', 'Male'),

@@ -1,29 +1,118 @@
 {% extends 'base.html' %}
-{% block title %} Registration {% endblock %}
+{% block title %}User Registration{% endblock %}
 
 {% block content %}
-<div class="container mt-1 d-flex justify-content-center">
-    <div class="card shadow-lg p-4" style="width: 700px;">
-        <h1 class="text-center mb-4 lead" style="font-size: 2rem;">Registration Form</h1>
-        <form method="post">
+<div class="container mt-5 d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+    <div class="card shadow-lg p-4" style="width: 100%; max-width: 700px;">
+        <h2 class="text-center mb-4">Register</h2>
+        <form method="post" novalidate>
             {% csrf_token %}
-            {{ form.as_p }}
-            {% if form.errors %}
-                <div class="alert alert-danger">
-                    <ul>
-                        {% for field in form %}
-                            {% for error in field.errors %}
-                                <li>{{ error }}</li>
-                            {% endfor %}
-                        {% endfor %}
-                        {% for error in form.non_field_errors %}
-                            <li>{{ error }}</li>
-                        {% endfor %}
-                    </ul>
+            
+            {{ form.non_field_errors }}
+            
+            <div class="row">
+                <div class="col-md-6 form-group">
+                    {{ form.username.label_tag }}
+                    {{ form.username }}
                 </div>
-            {% endif %}
-            <button class="btn btn-danger w-50">Register</button>
+                <div class="col-md-6 form-group">
+                    {{ form.first_name.label_tag }}
+                    {{ form.first_name }}
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 form-group">
+                    {{ form.last_name.label_tag }}
+                    {{ form.last_name }}
+                </div>
+                <div class="col-md-6 form-group">
+                    {{ form.email.label_tag }}
+                    {{ form.email }}
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 form-group">
+                    {{ form.password1.label_tag }}
+                    {{ form.password1 }}
+                </div>
+                <div class="col-md-6 form-group">
+                    {{ form.password2.label_tag }}
+                    {{ form.password2 }}
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 form-group">
+                    {{ form.age.label_tag }}
+                    {{ form.age }}
+                </div>
+                <div class="col-md-6 form-group">
+                    {{ form.gender.label_tag }}
+                    {{ form.gender }}
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 form-group">
+                    {{ form.location.label_tag }}
+                    {{ form.location }}
+                </div>
+                <div class="col-md-6 form-group">
+                    {{ form.health_condition.label_tag }}
+                    {{ form.health_condition }}
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 form-group">
+                    {{ form.phone.label_tag }}
+                    {{ form.phone }}
+                </div>
+                <div class="col-md-6 form-group">
+                    {{ form.next_of_kin.label_tag }}
+                    {{ form.next_of_kin }}
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-dark w-100 mt-3">Register</button>
         </form>
     </div>
 </div>
+<style>
+.container .card {
+    border-radius: 10px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.form-control {
+    height: 45px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.btn-danger {
+    border-radius: 10px;
+}
+
+input[type="text"], input[type="password"], input[type="email"], select {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focus, select:focus {
+    border-color: #007bff;
+    box-shadow: none;
+}
+</style>
 {% endblock %}

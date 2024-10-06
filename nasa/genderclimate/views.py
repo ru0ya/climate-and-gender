@@ -7,8 +7,20 @@ from .forms import UserForm
 from healthfacilities.views import search_health_facilities
 
 
-def HomeView(request):
-    return render(request, 'home.html')
+
+def home_view(request):
+# Example data for counts
+    users_count = 100
+    doctors_count = 20
+    facilities_count = 80
+    
+    context = {
+        'users_count': users_count,
+        'doctors_count': doctors_count,
+        'facilities_count': facilities_count,
+    }
+
+    return render(request, 'home.html', context)
 
 
 def user_register_view(request):
